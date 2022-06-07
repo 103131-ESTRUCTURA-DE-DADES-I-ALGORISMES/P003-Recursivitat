@@ -5,19 +5,29 @@ import java.util.*;
 
 public class Exercici_2 {
 	
-	// atributs estàtics utilitzats en la generació aleatòria de caràcters
-	private static char [] theChars = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'}; // els caràcters que poden ser generats
+	// atributs estï¿½tics utilitzats en la generaciï¿½ aleatï¿½ria de carï¿½cters
+	private static char [] theChars = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'}; // els carï¿½cters que poden ser generats
 	private static Random alea = new Random();
 	
 	public static void main (String [] args) {
-		/* Escriviu aquí el vostre codi de prova. Genereu 10000 palíndroms de mides 
-		 * aleatòries en l'interval [0,20] i verifiqueu-los amb la funció 
-		 * checkPalindrome subministrada. Vegeu enunciat de la pràctica
+		/* Escriviu aquï¿½ el vostre codi de prova. Genereu 10000 palï¿½ndroms de mides 
+		 * aleatï¿½ries en l'interval [0,20] i verifiqueu-los amb la funciï¿½ 
+		 * checkPalindrome subministrada. Vegeu enunciat de la prï¿½ctica
 		 */
+
+		for (int i = 0; i < 10000; i++) {
+			String s = genPalindrome(alea.nextInt(20));
+			if (!checkPalindrome(s)) {
+				System.out.println("ERROR: " + s);
+			}
+		}
 	}
 	
 	private static String genPalindrome (int length) {
-		/* COMPLETAR */
+		char c = randomChar();
+		if(length == 1) return ""+c;
+		if(length == 2) return ""+c+c;
+		return c+""+genPalindrome(length-2)+""+c;
 	}
 	
 	
