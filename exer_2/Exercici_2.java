@@ -6,8 +6,8 @@ import java.util.*;
 public class Exercici_2 {
 	
 	// atributs est�tics utilitzats en la generaci� aleat�ria de car�cters
-	private static char [] theChars = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'}; // els car�cters que poden ser generats
-	private static Random alea = new Random();
+	private static final char [] theChars = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'}; // els car�cters que poden ser generats
+	private static final Random alea = new Random();
 	
 	public static void main (String [] args) {
 		/* Escriviu aqu� el vostre codi de prova. Genereu 10000 pal�ndroms de mides 
@@ -27,7 +27,7 @@ public class Exercici_2 {
 		char c = randomChar();
 		if(length == 1) return ""+c;
 		if(length == 2) return ""+c+c;
-		return c+""+genPalindrome(length-2)+""+c;
+		return c+genPalindrome(length-2)+c;
 	}
 	
 	
@@ -42,7 +42,7 @@ public class Exercici_2 {
 	private static boolean checkPalindrome (String s) {
 		String ns = "";
 		for (int i=1; i<=s.length(); i++) 
-			ns = ns + s.charAt(s.length()-i);
+			ns += s.charAt(s.length()-i);
 		return s.equals(ns);
 	}
 	
