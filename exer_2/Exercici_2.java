@@ -16,10 +16,11 @@ public class Exercici_2 {
 		 */
 
 		for (int i = 0; i < 10000; i++) {
-			String s = genPalindrome(alea.nextInt(20));
+			String s = genPalindrome(alea.nextInt(19)+1);
 			if (!checkPalindrome(s)) {
 				System.out.println("ERROR: " + s);
 			}
+			System.out.println("eres el puto amo");
 		}
 	}
 	
