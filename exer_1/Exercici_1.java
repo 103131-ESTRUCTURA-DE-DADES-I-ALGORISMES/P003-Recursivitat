@@ -4,38 +4,49 @@ import java.util.*;
 
 public class Exercici_1 {
 	
-	/* Punt d'entrada en execució per a fer proves */
+	/* Punt d'entrada en execuciï¿½ per a fer proves */
 	public static void main (String [] args) {
 		Random alea = new Random();
 		int original, resultat;
-		String cadena;
+		String cadena= Integer.toString(123);
+		System.out.println(str2int(cadena));
 		
-		for (original = 0; original<=1000; original++) {
-			cadena = Integer.toString(original);
-			resultat = /* Invoqueu aquí la vostra funció de conversió */
-			if (original!=resultat) {
-				System.out.println("Error. String era: "+cadena+" resultat ha estat: "+resultat);
-			}
-		}
 		
-		for (int i=1; i<=100000; i++) {
-			original = alea.nextInt(Integer.MAX_VALUE);
-			cadena = Integer.toString(original);
-			resultat = /* Invoqueu aquí la vostra funció de conversió */
-			if (original!=resultat) {
-				System.out.println("Error. String era: "+cadena+" resultat ha estat: "+resultat);
-			}
-		}
+//		for (original = 0; original<=1000; original++) {
+//			cadena = Integer.toString(original);
+//			System.out.println("cadena="+cadena);
+//			resultat = str2int(cadena, 0);
+//			if (original!=resultat) {
+//				System.out.println("Error. String era: "+cadena+" resultat ha estat: "+resultat);
+//				break;
+//			}
+//		}
+		
+//		for (int i=1; i<=100000; i++) {
+//			original = alea.nextInt(Integer.MAX_VALUE);
+//			cadena = Integer.toString(original);
+//			resultat = /* Invoqueu aquï¿½ la vostra funciï¿½ de conversiï¿½ */
+//			if (original!=resultat) {
+//				System.out.println("Error. String era: "+cadena+" resultat ha estat: "+resultat);
+//			}
+//		}
 	}
 	
 	
 	
-	/* ESCRIVIU AQUÍ LA VOSTRA FUNCIÓ DE CONVERSIÓ String -> int */ 
+	/* ESCRIVIU AQUï¿½ LA VOSTRA FUNCIï¿½ DE CONVERSIï¿½ String -> int */ 
+	
+	private static int str2int(String s) {
+//		int num=translateChar(s.charAt(0));
+//		String ns=s.substring(1, s.length());
+//		r+=num*Math.pow(10, ns.length());
+		if(s.length()==0) return 0;
+		int i=str2int(s.substring(0,s.length()-1));
+		
+	}
 	
 	
-	
-	
-	/* funció que "transforma" un caràcter en el dígit (int) corresponent */
+	/* funciï¿½ que "transforma" un carï¿½cter en el dï¿½git (int) corresponent */
 	private static int translateChar (char c) {
 		switch (c) {
 		case '0': return 0;
