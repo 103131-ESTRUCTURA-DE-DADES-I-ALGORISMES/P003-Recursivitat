@@ -10,6 +10,7 @@ public class Exercici_3 {
 		 * vectors i utilitzeu la vostra funci� per dterminar si l'un 
 		 * �s la versi� girada de l'altre o no. Vegeu l'enunciat 
 		 * de la pr�ctica */
+
 		long time = System.currentTimeMillis();
 
 		Random r = new Random();
@@ -17,21 +18,11 @@ public class Exercici_3 {
 		for (int i=0; i<1000; i++){
 			Boolean t = r.nextBoolean();
 			VectorPair vp = new VectorPair(t);
-			// for(int j=0; j<vp.one.length; j++){
-			// 	System.out.print(vp.one[j] + ", ");
-			// }
-			// System.out.println();
-			// for(int j=0; j<vp.two.length; j++){
-			// 	System.out.print(vp.two[j] + ", ");
-			// }
-			// System.out.println();
-			// System.out.println(t);
 			if(checkReverse(vp.one, vp.two, 0)!=t) System.out.println("NO OK");
-			// System.out.println();
 		}
 
 		time = System.currentTimeMillis() - time;
-		System.out.println("\nExecuted in " + time + " ms.");
+		System.out.println("\n j " + j + ", Executed in " + time + " ms.");
 	}
 	
 	/* ESCRIVIU AQU� LA VOSTRA FUNCI� DE VERIFICACI� */
