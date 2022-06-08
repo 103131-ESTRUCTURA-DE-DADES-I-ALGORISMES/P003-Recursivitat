@@ -22,7 +22,7 @@ public class Exercici_3 {
 		}
 
 		time = System.currentTimeMillis() - time;
-		System.out.println("\n j " + j + ", Executed in " + time + " ms.");
+		System.out.println("\nExecuted in " + time + " ms.");
 	}
 	
 	/* ESCRIVIU AQU� LA VOSTRA FUNCI� DE VERIFICACI� */
