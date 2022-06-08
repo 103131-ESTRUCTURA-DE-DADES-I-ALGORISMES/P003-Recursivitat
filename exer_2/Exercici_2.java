@@ -20,14 +20,14 @@ public class Exercici_2 {
 			if (!checkPalindrome(s)) {
 				System.out.println("ERROR: " + s);
 			}
-			System.out.println("eres el puto amo");
+			System.out.println("soy el puto amo");
 		}
 	}
 	
 	private static String genPalindrome (int length) {
 		char c = randomChar();
+		if(length == 0) return "";
 		if(length == 1) return ""+c;
-		if(length == 2) return ""+c+c;
 		return c+genPalindrome(length-2)+c;
 	}
 	
