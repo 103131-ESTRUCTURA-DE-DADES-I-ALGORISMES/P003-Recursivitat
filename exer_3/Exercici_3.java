@@ -6,19 +6,45 @@ public class Exercici_3 {
 	
 	
 	public static void main (String [] args) {
-		/* Escriviu aquí el vostre codi de prova. Genereu parelles de
-		 * vectors i utilitzeu la vostra funció per dterminar si l'un 
-		 * és la versió girada de l'altre o no. Vegeu l'enunciat 
-		 * de la pràctica */
+		/* Escriviu aquï¿½ el vostre codi de prova. Genereu parelles de
+		 * vectors i utilitzeu la vostra funciï¿½ per dterminar si l'un 
+		 * ï¿½s la versiï¿½ girada de l'altre o no. Vegeu l'enunciat 
+		 * de la prï¿½ctica */
+		long time = System.currentTimeMillis();
+
+		Random r = new Random();
+
+		for (int i=0; i<1000; i++){
+			Boolean t = r.nextBoolean();
+			VectorPair vp = new VectorPair(t);
+			// for(int j=0; j<vp.one.length; j++){
+			// 	System.out.print(vp.one[j] + ", ");
+			// }
+			// System.out.println();
+			// for(int j=0; j<vp.two.length; j++){
+			// 	System.out.print(vp.two[j] + ", ");
+			// }
+			// System.out.println();
+			// System.out.println(t);
+			if(checkReverse(vp.one, vp.two, 0)!=t) System.out.println("NO OK");
+			// System.out.println();
+		}
+
+		time = System.currentTimeMillis() - time;
+		System.out.println("\nExecuted in " + time + " ms.");
 	}
 	
-	/* ESCRIVIU AQUÍ LA VOSTRA FUNCIÓ DE VERIFICACIÓ */
+	/* ESCRIVIU AQUï¿½ LA VOSTRA FUNCIï¿½ DE VERIFICACIï¿½ */
+	private static boolean checkReverse (int [] v1, int [] v2, int l) {
+		if (l==v1.length) return true;		
+		return v1[l] == v2[v1.length-1-l] && checkReverse(v1, v2, l+1);
+	}
 	
 }
 
 
 /* Classe d'utilitat per a generar parelles de vectors que poden sser
- * l'un la versió girada de l'altre o no, en funció del paràmetre del
+ * l'un la versiï¿½ girada de l'altre o no, en funciï¿½ del parï¿½metre del
  * constructor  */
 class VectorPair {
 	
@@ -28,8 +54,8 @@ class VectorPair {
 	public int [] two;
 	
 	public VectorPair(boolean correctlyReversed) {
-		this.one = this.randomIntVector(correctlyReversed ? alea.nextInt(10) : alea.nextInt(10)+1);
-		this.two = this.reversed(this.one);
+		this.one = VectorPair.randomIntVector(correctlyReversed ? alea.nextInt(10) : alea.nextInt(10)+1);
+		this.two = VectorPair.reversed(this.one);
 		if (!correctlyReversed) {
 			this.two[alea.nextInt(this.two.length)]++;
 		}
