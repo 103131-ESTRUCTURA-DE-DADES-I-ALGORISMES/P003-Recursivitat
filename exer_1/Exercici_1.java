@@ -9,7 +9,7 @@ public class Exercici_1 {
 		Random alea = new Random();
 		int original, resultat;
 		String cadena= Integer.toString(123);
-		System.out.println(str2int(cadena,0));
+		System.out.println(str2int(cadena));
 		
 		
 //		for (original = 0; original<=1000; original++) {
