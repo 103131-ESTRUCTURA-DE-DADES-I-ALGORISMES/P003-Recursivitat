@@ -14,14 +14,15 @@ public class Exercici_2 {
 		 * aleat�ries en l'interval [0,20] i verifiqueu-los amb la funci� 
 		 * checkPalindrome subministrada. Vegeu enunciat de la pr�ctica
 		 */
-
+		long time = System.currentTimeMillis();
 		for (int i = 0; i < 10000; i++) {
 			String s = genPalindrome(alea.nextInt(19)+1);
 			if (!checkPalindrome(s)) {
 				System.out.println("ERROR: " + s);
 			}
-			System.out.println("soy el puto amo");
 		}
+		time = time - System.currentTimeMillis();
+		System.out.println("\nExecuted in " + time);
 	}
 	
 	private static String genPalindrome (int length) {
