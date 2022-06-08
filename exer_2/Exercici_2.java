@@ -21,8 +21,8 @@ public class Exercici_2 {
 				System.out.println("ERROR: " + s);
 			}
 		}
-		time = time - System.currentTimeMillis();
-		System.out.println("\nExecuted in " + time);
+		time = System.currentTimeMillis() - time;
+		System.out.println("\nExecuted in " + time + " ms.");
 	}
 	
 	private static String genPalindrome (int length) {
