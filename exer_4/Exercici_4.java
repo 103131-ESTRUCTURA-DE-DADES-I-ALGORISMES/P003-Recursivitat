@@ -8,46 +8,96 @@ public class Exercici_4 {
 	private static Random alea = new Random();
 	
 	public static void main (String [] args) {
+		long time = System.currentTimeMillis();		
 		
 		String mot, ite, rec;
-		
-		System.out.println();
-		for (int i=1; i<10000; i++) {
+		for (int i=1; i<10; i++) {
 			mot = genCadena(alea.nextInt(21));
-			ite = torturaIte(mot);
-			rec = tortura(mot);
-			if (!ite.equals(rec)) {
-				System.out.println("Discrepància detectada");
-				System.out.println("per al mot: "+mot);
-				System.out.println("la versió recursiva ha generat: "+rec);
-				System.out.println("la versió iterativa ha generat: "+ite);
-				System.out.println("CAL REVISAR EL CODI GENERAT");
-				System.exit(1);
+			if(mot.contains("a")){
+				ite = torturaIte(mot);
+				rec = tortura(mot);
+				System.out.println("mot: " + mot);
+				System.out.println("rec: " + rec);
+				System.out.println("ite: " + ite);
+				if (!ite.equals(rec)) {
+					System.out.println("DiscrepÃ ncia detectada");
+				// 	System.out.println("per al mot: "+mot);
+				// 	System.out.println("la versiï¿½ recursiva ha generat: "+rec);
+				// 	System.out.println("la versiï¿½ iterativa ha generat: "+ite);
+				// 	System.out.println("CAL REVISAR EL CODI GENERAT");
+				// 	System.exit(1);
+				}
+				System.out.println();
 			}
 		}
+
+		time = System.currentTimeMillis() - time;
 		
-		System.out.println("Prova finalitza sense haver detectat discrepàncies");
+		System.out.println("Prova finalitza sense haver detectat discrepï¿½ncies");
 		System.out.println("entre les versions iterativa i recursiva.");
-		System.out.println("Però això no vol dir ...");
-		
+		System.out.println("Perï¿½ aixï¿½ no vol dir ...");
+
+		System.out.println("\nExecuted in " + time + " ms.");
 	}
 	
-	// Funció façana (llançadora) 
+	// Funciï¿½ faï¿½ana (llanï¿½adora) 
 	public static String tortura (String s) {
-		// escriure aquí la invocació inicial del funció recursiva de "tortura"
+		// escriure aquï¿½ la invocaciï¿½ inicial del funciï¿½ recursiva de "tortura"
+		String str = "";
+		for(int i=0; i<s.length(); i++) {
+			if(s.charAt(i) == 'a'){
+				if(i%2==0) str+='1';
+				else str+='2';
+			}
+			else str += s.charAt(i);
+		}
+		return str; // 40 ms
 	}
 	
-	// escriure aquí la funció RECURSIVA de tortura
+	// escriure aquï¿½ la funciï¿½ RECURSIVA de tortura
 	
 	public static String torturaIte (String s) {
-		// escriure aquí el cos de la versió iterativa de la funció de "tortura"
+		// escriure aquï¿½ el cos de la versiï¿½ iterativa de la funciï¿½ de "tortura"
+		if (s.length()==0) return "";
+		
+		int centre = s.length()/2;
+		String esquerra = s.substring(0, centre);
+		String dreta = s.substring(centre+1, s.length());
+				
+		if (s.charAt(centre)=='a')
+			if(centre%2==0 ^ s.length()%2==1) return torturaIte(esquerra) + '1' + torturaIte(dreta);
+			else return torturaIte(esquerra) + '2' + torturaIte(dreta);
+		else
+			return torturaIte(esquerra)+s.charAt(centre)+torturaIte(dreta);
 	}
 	
 	public static String genCadena (int n) {
-		// escriure aquí el cos de la funció RECURSIVA que genera 
-		// cadenes de caràcters de mida n
+		// escriure aquï¿½ el cos de la funciï¿½ RECURSIVA que genera 
+		// cadenes de carï¿½cters de mida n
+		if(n==0) return "";
+		else return genCadena(n-1) + alfabet[alea.nextInt(alfabet.length)];
 	}
 	
-	
 
+
+	public static String capitalitzarA (String str) { 
+		if (str.length()==0) return "";
+		
+		int centre = str.length()/2;
+		// centre no incorporat a cap subseqÃ¼Ã¨ncia String esquerra = str.substring(0, centre); String dreta str.substring(centre+1, str.length());
+		String esquerra = str.substring(0, centre);
+		String dreta = str.substring(centre+1, str.length());
+		
+		// System.out.println("\n\n=============\nEntra: "+str);
+		// System.out.println("Centre: "+centre+" - "+str.charAt(centre));
+		// System.out.println("Esquerra: "+esquerra);
+		// System.out.println("Dreta: "+dreta);
+		
+		
+		if (str.charAt(centre)=='a')
+			return capitalitzarA(esquerra)+"A"+capitalitzarA(dreta);
+		
+		else
+			return capitalitzarA(esquerra)+str.charAt(centre)+capitalitzarA(dreta);
+	}
 }
