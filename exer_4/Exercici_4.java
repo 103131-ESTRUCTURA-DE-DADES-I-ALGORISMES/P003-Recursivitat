@@ -24,7 +24,6 @@ public class Exercici_4 {
 				 	System.out.println("CAL REVISAR EL CODI GENERAT");
 				 	System.exit(1);
 				}
-				System.out.println();
 			}
 		}
 
