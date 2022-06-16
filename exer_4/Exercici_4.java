@@ -37,7 +37,6 @@ public class Exercici_4 {
 		System.out.println("\nExecuted in " + time + " ms.");
 	}
 	
-	// Funci� fa�ana (llan�adora) 
 	public static String tortura (String s) {
 		return replaceAs(s, 0, "start");
 	}
@@ -61,39 +60,14 @@ public class Exercici_4 {
 		else return genCadena(n-1) + alfabet[alea.nextInt(alfabet.length)];
 	}
 	
-
 	public static String replaceAs(String s, int l, String costat) {
 		if (s.length()==0) return "";
-		
 				
 		int centre = s.length()/2;
 		String esquerra = s.substring(0, centre);
 		String dreta = s.substring(centre+1, s.length());
 		char c=s.charAt(centre)=='a'? ((centre+l)%2==0?'*':'_') :s.charAt(centre);
 		
-		
 		return replaceAs(esquerra,l, "esquerra")+c+replaceAs(dreta,centre+l+1, "dreta");
-	}
-
-	public static String capitalitzarA (String str) { 
-		if (str.length()==0) return "";
-		
-		int centre = str.length()/2;
-		
-		String esquerra = str.substring(0, centre);
-		String dreta = str.substring(centre+1, str.length());
-		
-		 System.out.println("\n\n=============\nEntra: "+str);
-		 System.out.println("Centre: "+centre+" - "+str.charAt(centre));
-		 System.out.println("Esquerra: "+esquerra);
-		 System.out.println("Dreta: "+dreta);
-		
-		
-		
-		if (str.charAt(centre)=='a')
-			return capitalitzarA(esquerra)+"A"+capitalitzarA(dreta);
-		
-		else
-			return capitalitzarA(esquerra)+str.charAt(centre)+capitalitzarA(dreta);
 	}
 }
