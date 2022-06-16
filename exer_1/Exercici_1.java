@@ -5,6 +5,8 @@ import java.util.*;
 public class Exercici_1 {
 	
 	public static void main (String [] args) {
+		long time = System.currentTimeMillis();
+
 		Random alea = new Random();
 		int original, resultat;
 		String cadena;
@@ -26,6 +28,8 @@ public class Exercici_1 {
 				System.out.println("Error. String era: "+cadena+" resultat ha estat: "+resultat);
 			}
 		}
+		time = System.currentTimeMillis() - time;
+		System.out.println("\nExecuted in " + time + " ms.");
 	}
 	
 	
