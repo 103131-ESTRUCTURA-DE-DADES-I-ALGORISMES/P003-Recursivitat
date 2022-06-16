@@ -11,7 +11,7 @@ public class Exercici_4 {
 		long time = System.currentTimeMillis();
 
 		String mot, ite, rec;
-		for (int i=1; i<10; i++) {
+		for (int i=1; i<10000; i++) {
 			mot = genCadena(alea.nextInt(21));
 			if(mot.contains("a")){
 				ite = torturaIte(mot);
